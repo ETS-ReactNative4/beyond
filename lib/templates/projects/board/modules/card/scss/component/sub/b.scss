@@ -1,0 +1,33 @@
+.card__form-add {
+  width: 100%;
+  display: grid;
+  background: $beyond-secondary-color;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
+  transition: all 200ms linear;
+  align-items: center;
+  cursor: pointer;
+
+  span {
+    padding: 15px;
+  }
+
+  &:focus-within {
+    background: $beyond-secondary-dark-color;
+  }
+
+  input {
+
+    background: none;
+    box-shadow: none;
+    padding: 15px 8px;
+    border: 0;
+    color: $beyond-text-on-secondary;
+    outline: none;
+
+    &:focus {
+      border: none;
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+.app-page-container {
+  padding: 15px;
+  display: flex;
+  animation: expand-right .8s ease forwards;
+
+  .app__lists-container {
+    margin-top: 30px;
+    flex-flow: row;
+    display: flex;
+    align-items: flex-start;
+    min-width: 1024px;
+    gap: 15px;
+  }
+
+  &.right-hidden {
+    animation: hidden-right .8s ease forwards;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes hidden-right {
+  0% {
+    transform: translateX(0px);
+  }
+  99% {
+    transform: translateX(-1400px);
+  }
+  100% {
+    display: none;
+    transform: none;
+  }
+}

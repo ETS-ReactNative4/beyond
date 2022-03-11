@@ -1,0 +1,24 @@
+{
+  "spa": {
+    "empty": "Ups, al parecer buscas algo que no existe.",
+    "actions": {
+      "back": "Ir a las listas",
+      "finish": "Finalizar",
+      "delete": "Eliminar"
+    },
+    "form": {
+      "action": "Agregar tarea"
+    }
+  },
+  "eng": {
+    "empty": "Ups, al parecer buscas algo que no existe.",
+    "actions": {
+      "back": "Ir a las listas",
+      "finish": "Finalizar",
+      "delete": "Eliminar"
+    },
+    "form": {
+      "action": "Agregar tarea"
+    }
+  }
+}
