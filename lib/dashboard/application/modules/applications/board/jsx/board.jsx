@@ -33,6 +33,7 @@ export function ApplicationsBoard() {
     const headerTexts = texts.header;
     let apps = applications.items.map(item => <ApplicationItem texts={texts} key={item.id} item={item}/>);
     if (!applications.items.length) apps = <Empty/>;
+    const cls = `ds-board__list-container${applications.items.length ? '' : ' empty-container'}`;
     return (
         <DSApplicationsContext.Provider value={{texts, timeUpdated: state.timeUpdated, creteApp: showAppForm}}>
             <main className="ds-projects-board">
@@ -43,10 +44,9 @@ export function ApplicationsBoard() {
                         <span>{applications.items.length} {headerTexts.title}</span>
                     </div>
                 </header>
-                <section className="ds-board__list-container">
+                <section className={cls}>
                     {apps}
                 </section>
-
             </main>
         </DSApplicationsContext.Provider>
     );

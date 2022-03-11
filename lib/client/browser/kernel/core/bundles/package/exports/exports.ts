@@ -14,8 +14,13 @@ export class Exports {
         this.#require = require;
     }
 
-    // This method is overridden by the bundle file
-    process(require: (id: string) => any, exports: ExportedValues) {
+    // This method is overridden by the bundle file to process the module exports
+    process(require: (id: string) => any) {
+        void (require);
+    }
+
+    // This method is overridden by the bundle file to processed the managed exports
+    managed(require: (id: string) => any, exports: ExportedValues) {
         void (require && exports);
     }
 
@@ -25,6 +30,8 @@ export class Exports {
             trace.register('exports.update', id);
             return this.#require.solve(id, trace);
         }
-        this.process(require, this.#values);
+
+        this.process(require);
+        this.managed(require, this.#values);
     }
 }

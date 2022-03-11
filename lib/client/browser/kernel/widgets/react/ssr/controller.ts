@@ -23,7 +23,7 @@ abstract class ReactWidgetController extends BeyondWidgetControllerSSR {
         try {
             html = ReactDOMServer.renderToString(React.createElement(Widget, props));
         } catch (exc) {
-            console.log(exc.stack);
+            console.error(exc.stack);
             return {errors: [exc.message]};
         }
 

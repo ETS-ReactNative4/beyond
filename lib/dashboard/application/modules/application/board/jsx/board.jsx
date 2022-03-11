@@ -28,10 +28,10 @@ export function ApplicationBoard(props) {
         <AppContext.Provider value={value}>
             <div className="ds__board">
                 <Header/>
-                <article>
-                    <HeaderList/>
-                    <ModulesList/>
-                </article>
+
+                <HeaderList/>
+                <ModulesList/>
+
             </div>
         </AppContext.Provider>
     );

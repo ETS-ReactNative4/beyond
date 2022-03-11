@@ -1,6 +1,7 @@
 {
-  "name": "empty-app",
+  "name": "web-app",
   "version": "1.0.0",
+  "layout": "main-layout",
   "template": "template/template.json",
   "modules": {
     "path": "./modules",
@@ -13,9 +14,9 @@
         "development": "umd/react-dom.development.js",
         "production": "umd/react-dom.production.min.js"
       },
-      "socket.io": {
-        "development": "client-dist/socket.io.js",
-        "production": "client-dist/socket.io.msgpack.min.js"
+      "socket.io-client": {
+        "development": "dist/socket.io.js",
+        "production": "dist/socket.io.msgpack.min.js"
       }
     }
   },

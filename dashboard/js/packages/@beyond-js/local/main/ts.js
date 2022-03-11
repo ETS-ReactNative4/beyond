@@ -206,14 +206,21 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       }();
       exports.services = services;
     }
-  });
-  let local, services;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.local = require('./local').local;
+    _exports.services = require('./services/services').services;
+  };
+
+  let local, services; // Module exports
+
   _exports2.services = services;
   _exports2.local = local;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.local = local = _exports.local = require('./local').local;
-    _exports2.services = services = _exports.services = require('./services/services').services;
+  __pkg.exports.process = function (require) {
+    _exports2.local = local = require('./local').local;
+    _exports2.services = services = require('./services/services').services;
   };
 
   const hmr = new function () {

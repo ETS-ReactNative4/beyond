@@ -1,6 +1,6 @@
 {
+  "id": "application-create",
   "code": {
-    "id": "application-create",
     "imports": "imports.js",
     "jsx": {
       "path": "jsx",

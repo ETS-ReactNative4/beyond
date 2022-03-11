@@ -277,9 +277,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             monitor: beyond.params.monitor
           });
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }
@@ -313,9 +313,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             });
           })(requirejs.config, `packages/@beyond-js/ui/popper/vendor`);
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }
@@ -349,9 +349,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             });
           })(requirejs.config, `packages/@beyond-js/ui/tippy/vendor`);
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }
@@ -385,9 +385,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             });
           })(requirejs.config, `packages/@beyond-js/ui/waves/vendor`);
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }
@@ -419,9 +419,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             });
           })().catch(exc => console.error(exc.stack));
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }
@@ -468,9 +468,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
           }();
           exports.DSBoards = DSBoards;
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {
+      __pkg.exports.managed = function (require, _exports) {
         _exports.DSBoards = require('./start').DSBoards;
       };
 
@@ -506,9 +506,9 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
             });
           })(requirejs.config);
         }
-      });
+      }); // Exports managed by beyond bundle objects
 
-      __pkg.exports.process = function (require, _exports) {};
+      __pkg.exports.managed = function (require, _exports) {};
 
       return modules;
     }

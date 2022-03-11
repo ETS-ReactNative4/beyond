@@ -1,8 +1,32 @@
 import type {Require} from "./requirejs";
+import type {beyond} from "../beyond";
 
 declare const amd_require: Require;
 
 declare function cjs_require(module: string): any;
+
+// declare let require: Require;
+//TODO: @julio
+//TODO: @box
+
+// if (typeof window === "object") {
+//     const prevRequire = window.require;
+//     (window as any).require = (...params) => {
+//         if (!(params[0] instanceof Array)) return prevRequire(...params);
+//
+//         params[0] = params[0].map(param => param.endsWith('.js') ? `${beyond.baseUrl}/packages/${param}.js` : param);
+//         return prevRequire(...params);
+//     }
+//
+//     const prevDefine = window.define;
+//     (window as any).define = (...params) => {
+//         console.log(0.1, params[0]);
+//         if (!(params[0] instanceof Array)) return prevDefine(...params);
+//         params[0] = params[0].map(param => param.endsWith('.js') ? `${beyond.baseUrl}/packages/${param}.js` : param);
+//         console.log(0.2, params[0])
+//         return prevDefine(...params);
+//     }
+// }
 
 export class BeyondRequire {
     readonly #mode: string;

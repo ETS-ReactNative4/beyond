@@ -361,7 +361,8 @@ const widgets = new class {
 exports.widgets = widgets;
 }});
 
-__pkg.exports.process = function(require, _exports) {
+// Module exports
+__pkg.exports.process = function(require) {
 };
 export const hmr = new (function () {
     this.on = (event, listener) => void 0;

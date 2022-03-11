@@ -30,12 +30,18 @@ define(["exports"], function (_exports2) {
     creator: function (require, exports) {
       exports.txt = {};
     }
-  });
-  let txt;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.txt = require('./txt').txt;
+  };
+
+  let txt; // Module exports
+
   _exports2.txt = txt;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.txt = txt = _exports.txt = require('./txt').txt;
+  __pkg.exports.process = function (require) {
+    _exports2.txt = txt = require('./txt').txt;
   };
 
   const hmr = new function () {

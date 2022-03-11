@@ -6,7 +6,7 @@ function Empty({texts, type}) {
     const addModule = () => workspace.setState({addModule: true});
 
     return (
-        <div className="ds-empty-container">
+        <div className="ds-empty-container mt-100">
             <header>
                 <h1 className="primary-color" dangerouslySetInnerHTML={{__html: title}}/>
                 <h2 dangerouslySetInnerHTML={{__html: description}}/>

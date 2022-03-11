@@ -95,14 +95,21 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
       exports.PageSvelteWidgetController = PageSvelteWidgetController;
     }
-  });
-  let SvelteWidgetController, PageSvelteWidgetController;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.SvelteWidgetController = require('./controller').SvelteWidgetController;
+    _exports.PageSvelteWidgetController = require('./page').PageSvelteWidgetController;
+  };
+
+  let SvelteWidgetController, PageSvelteWidgetController; // Module exports
+
   _exports2.PageSvelteWidgetController = PageSvelteWidgetController;
   _exports2.SvelteWidgetController = SvelteWidgetController;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.SvelteWidgetController = SvelteWidgetController = _exports.SvelteWidgetController = require('./controller').SvelteWidgetController;
-    _exports2.PageSvelteWidgetController = PageSvelteWidgetController = _exports.PageSvelteWidgetController = require('./page').PageSvelteWidgetController;
+  __pkg.exports.process = function (require) {
+    _exports2.SvelteWidgetController = SvelteWidgetController = require('./controller').SvelteWidgetController;
+    _exports2.PageSvelteWidgetController = PageSvelteWidgetController = require('./page').PageSvelteWidgetController;
   };
 
   const hmr = new function () {

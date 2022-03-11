@@ -4,10 +4,22 @@
 
 .flex-container {
   display: flex;
-}
+  gap: $ds-column-grid-gap;
+  flex-wrap: wrap;
 
-.flex-center {
-  place-items: center;
+  &.flex-space {
+    justify-content: space-between;
+  }
+
+  &.flex-center {
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+  }
+
+  &.flex-space-x {
+    justify-content: space-between;
+  }
 }
 
 .columns-container {
@@ -17,4 +29,15 @@
   &.two-columns {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.empty-container {
+  @extend .flex-center;
+  @extend .flex-container;
+  overflow: hidden;
+  margin: auto;
 }

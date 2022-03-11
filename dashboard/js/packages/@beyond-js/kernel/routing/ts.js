@@ -1712,18 +1712,27 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
       exports.URI = URI;
     }
-  });
-  let IContainerControl, LayoutContainer, PageContainer, routing;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.IContainerControl = require('./layouts/abstract-classes/layouts/layout').IContainerControl;
+    _exports.LayoutContainer = require('./layouts/abstract-classes/layouts/layout').LayoutContainer;
+    _exports.PageContainer = require('./layouts/abstract-classes/pages/page-container').PageContainer;
+    _exports.routing = require('./routing').routing;
+  };
+
+  let IContainerControl, LayoutContainer, PageContainer, routing; // Module exports
+
   _exports2.routing = routing;
   _exports2.PageContainer = PageContainer;
   _exports2.LayoutContainer = LayoutContainer;
   _exports2.IContainerControl = IContainerControl;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.IContainerControl = IContainerControl = _exports.IContainerControl = require('./layouts/abstract-classes/layouts/layout').IContainerControl;
-    _exports2.LayoutContainer = LayoutContainer = _exports.LayoutContainer = require('./layouts/abstract-classes/layouts/layout').LayoutContainer;
-    _exports2.PageContainer = PageContainer = _exports.PageContainer = require('./layouts/abstract-classes/pages/page-container').PageContainer;
-    _exports2.routing = routing = _exports.routing = require('./routing').routing;
+  __pkg.exports.process = function (require) {
+    _exports2.IContainerControl = IContainerControl = require('./layouts/abstract-classes/layouts/layout').IContainerControl;
+    _exports2.LayoutContainer = LayoutContainer = require('./layouts/abstract-classes/layouts/layout').LayoutContainer;
+    _exports2.PageContainer = PageContainer = require('./layouts/abstract-classes/pages/page-container').PageContainer;
+    _exports2.routing = routing = require('./routing').routing;
   };
 
   const hmr = new function () {

@@ -26,7 +26,7 @@ define(["exports", "react-dom/server.js", "react", "@beyond-js/kernel/core/ts"],
   ****************************/
 
   modules.set('./controller', {
-    hash: 2680509365,
+    hash: 1604595885,
     creator: function (require, exports) {
       "use strict";
 
@@ -61,7 +61,7 @@ define(["exports", "react-dom/server.js", "react", "@beyond-js/kernel/core/ts"],
           try {
             html = ReactDOMServer.renderToString(React.createElement(Widget, props));
           } catch (exc) {
-            console.log(exc.stack);
+            console.error(exc.stack);
             return {
               errors: [exc.message]
             };
@@ -99,14 +99,21 @@ define(["exports", "react-dom/server.js", "react", "@beyond-js/kernel/core/ts"],
 
       exports.PageReactWidgetController = PageReactWidgetController;
     }
-  });
-  let ReactWidgetController, PageReactWidgetController;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.ReactWidgetController = require('./controller').ReactWidgetController;
+    _exports.PageReactWidgetController = require('./page').PageReactWidgetController;
+  };
+
+  let ReactWidgetController, PageReactWidgetController; // Module exports
+
   _exports2.PageReactWidgetController = PageReactWidgetController;
   _exports2.ReactWidgetController = ReactWidgetController;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.ReactWidgetController = ReactWidgetController = _exports.ReactWidgetController = require('./controller').ReactWidgetController;
-    _exports2.PageReactWidgetController = PageReactWidgetController = _exports.PageReactWidgetController = require('./page').PageReactWidgetController;
+  __pkg.exports.process = function (require) {
+    _exports2.ReactWidgetController = ReactWidgetController = require('./controller').ReactWidgetController;
+    _exports2.PageReactWidgetController = PageReactWidgetController = require('./page').PageReactWidgetController;
   };
 
   const hmr = new function () {

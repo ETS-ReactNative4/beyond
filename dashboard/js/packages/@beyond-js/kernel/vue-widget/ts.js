@@ -59,12 +59,18 @@ define(["exports", "@beyond-js/kernel/core/ts", "vue"], function (_exports2, dep
 
       exports.VueWidgetController = VueWidgetController;
     }
-  });
-  let VueWidgetController;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.VueWidgetController = require('./controller').VueWidgetController;
+  };
+
+  let VueWidgetController; // Module exports
+
   _exports2.VueWidgetController = VueWidgetController;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.VueWidgetController = VueWidgetController = _exports.VueWidgetController = require('./controller').VueWidgetController;
+  __pkg.exports.process = function (require) {
+    _exports2.VueWidgetController = VueWidgetController = require('./controller').VueWidgetController;
   };
 
   const hmr = new function () {

@@ -33,12 +33,18 @@ define(["exports"], function (_exports2) {
         "description": "Beyond ofrece una gran variedad de Componentes, los cuales permiten construir rápidamente la interfaz de usuario para su aplicación.  Estos componentes vienen incluidos para poder ser usados en cualquier momento."
       };
     }
-  });
-  let txt;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.txt = require('./txt').txt;
+  };
+
+  let txt; // Module exports
+
   _exports2.txt = txt;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.txt = txt = _exports.txt = require('./txt').txt;
+  __pkg.exports.process = function (require) {
+    _exports2.txt = txt = require('./txt').txt;
   };
 
   const hmr = new function () {

@@ -13,17 +13,6 @@ body {
     @include fadeOut();
   }
 
-  .flex-container {
-    display: flex;
-    gap: $ds-column-grid-gap;
-    flex-wrap: wrap;
-
-    &.flex-space-x {
-      justify-content: space-between;
-    }
-
-  }
-
   .p-0 {
     padding: 0;
   }
@@ -143,6 +132,10 @@ body {
 
   .mt-15 {
     margin-top: 15px;
+  }
+
+  .mt-100 {
+    margin-top: 100px;
   }
 
   .relative__container {

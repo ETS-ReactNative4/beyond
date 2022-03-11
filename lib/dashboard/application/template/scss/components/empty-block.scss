@@ -4,10 +4,11 @@
   max-width: 600px;
 
   align-items: center;
-  justify-content: normal;
+  justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin: 100px auto;
+  margin: auto;
+
   gap: 40px; //margin between text and button
 
   .ds-empty_buttons-container {

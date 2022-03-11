@@ -78,9 +78,12 @@ define(["exports", "react", "react-dom"], function (_exports2, dependency_0, dep
   }
 
   _exports2.default = FadeIn;
-  const modules = new Map();
+  const modules = new Map(); // Exports managed by beyond bundle objects
 
-  __pkg.exports.process = function (require, _exports) {};
+  __pkg.exports.managed = function (require, _exports) {}; // Module exports
+
+
+  __pkg.exports.process = function (require) {};
 
   const hmr = new function () {
     this.on = (event, listener) => void 0;

@@ -852,7 +852,7 @@ define(["exports"], function (_exports2) {
   *************************************************/
 
   modules.set('./bundles/package/exports/exports', {
-    hash: 2546705124,
+    hash: 1667913459,
     creator: function (require, exports) {
       "use strict";
 
@@ -873,10 +873,15 @@ define(["exports"], function (_exports2) {
 
         constructor(require) {
           this.#require = require;
-        } // This method is overridden by the bundle file
+        } // This method is overridden by the bundle file to process the module exports
 
 
-        process(require, exports) {
+        process(require) {
+          void require;
+        } // This method is overridden by the bundle file to processed the managed exports
+
+
+        managed(require, exports) {
           void (require && exports);
         }
 
@@ -887,7 +892,8 @@ define(["exports"], function (_exports2) {
             return this.#require.solve(id, trace);
           };
 
-          this.process(require, this.#values);
+          this.process(require);
+          this.managed(require, this.#values);
         }
 
       }
@@ -1538,14 +1544,34 @@ define(["exports"], function (_exports2) {
   ********************************/
 
   modules.set('./import/require', {
-    hash: 1917915375,
+    hash: 72439168,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.BeyondRequire = void 0;
+      exports.BeyondRequire = void 0; // declare let require: Require;
+      //TODO: @julio
+      //TODO: @box
+      // if (typeof window === "object") {
+      //     const prevRequire = window.require;
+      //     (window as any).require = (...params) => {
+      //         if (!(params[0] instanceof Array)) return prevRequire(...params);
+      //
+      //         params[0] = params[0].map(param => param.endsWith('.js') ? `${beyond.baseUrl}/packages/${param}.js` : param);
+      //         return prevRequire(...params);
+      //     }
+      //
+      //     const prevDefine = window.define;
+      //     (window as any).define = (...params) => {
+      //         console.log(0.1, params[0]);
+      //         if (!(params[0] instanceof Array)) return prevDefine(...params);
+      //         params[0] = params[0].map(param => param.endsWith('.js') ? `${beyond.baseUrl}/packages/${param}.js` : param);
+      //         console.log(0.2, params[0])
+      //         return prevDefine(...params);
+      //     }
+      // }
 
       class BeyondRequire {
         #mode;
@@ -4180,7 +4206,8 @@ define(["exports"], function (_exports2) {
       exports.widgets = widgets;
     }
   });
-  let beyond, Bundle, BundleStyles, Module, ModuleTexts, ActionsBridge, Collection, Events, ListenerFunction, CancellationToken, SingleCall, PendingPromise, IWidgetStore, BeyondWidgetControllerBase, BeyondWidgetController, IWidgetRendered, BeyondWidgetControllerSSR, NodeWidget, WidgetControllerLoader, WidgetSpecs, widgets;
+  let beyond, Bundle, BundleStyles, Module, ModuleTexts, ActionsBridge, Collection, Events, ListenerFunction, CancellationToken, SingleCall, PendingPromise, IWidgetStore, BeyondWidgetControllerBase, BeyondWidgetController, IWidgetRendered, BeyondWidgetControllerSSR, NodeWidget, WidgetControllerLoader, WidgetSpecs, widgets; // Module exports
+
   _exports2.widgets = widgets;
   _exports2.WidgetSpecs = WidgetSpecs;
   _exports2.WidgetControllerLoader = WidgetControllerLoader;
@@ -4203,28 +4230,28 @@ define(["exports"], function (_exports2) {
   _exports2.Bundle = Bundle;
   _exports2.beyond = beyond;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.beyond = beyond = _exports.beyond = require('./beyond').beyond;
-    _exports2.Bundle = Bundle = _exports.Bundle = require('./bundles/bundle').Bundle;
-    _exports2.BundleStyles = BundleStyles = _exports.BundleStyles = require('./bundles/styles/styles').BundleStyles;
-    _exports2.Module = Module = _exports.Module = require('./modules/module').Module;
-    _exports2.ModuleTexts = ModuleTexts = _exports.ModuleTexts = require('./modules/texts').ModuleTexts;
-    _exports2.ActionsBridge = ActionsBridge = _exports.ActionsBridge = require('./service/actions-bridge').ActionsBridge;
-    _exports2.Collection = Collection = _exports.Collection = require('./utils/collection/collection').Collection;
-    _exports2.Events = Events = _exports.Events = require('./utils/events/events').Events;
-    _exports2.ListenerFunction = ListenerFunction = _exports.ListenerFunction = require('./utils/events/types').ListenerFunction;
-    _exports2.CancellationToken = CancellationToken = _exports.CancellationToken = require('./utils/execution-control/cancellation-token/cancellation-token').CancellationToken;
-    _exports2.SingleCall = SingleCall = _exports.SingleCall = require('./utils/execution-control/single-call/single-call').SingleCall;
-    _exports2.PendingPromise = PendingPromise = _exports.PendingPromise = require('./utils/pending-promise/pending-promise').PendingPromise;
-    _exports2.IWidgetStore = IWidgetStore = _exports.IWidgetStore = require('./widgets/controller/base').IWidgetStore;
-    _exports2.BeyondWidgetControllerBase = BeyondWidgetControllerBase = _exports.BeyondWidgetControllerBase = require('./widgets/controller/base').BeyondWidgetControllerBase;
-    _exports2.BeyondWidgetController = BeyondWidgetController = _exports.BeyondWidgetController = require('./widgets/controller/controller').BeyondWidgetController;
-    _exports2.IWidgetRendered = IWidgetRendered = _exports.IWidgetRendered = require('./widgets/controller/ssr').IWidgetRendered;
-    _exports2.BeyondWidgetControllerSSR = BeyondWidgetControllerSSR = _exports.BeyondWidgetControllerSSR = require('./widgets/controller/ssr').BeyondWidgetControllerSSR;
-    _exports2.NodeWidget = NodeWidget = _exports.NodeWidget = require('./widgets/instances/node').NodeWidget;
-    _exports2.WidgetControllerLoader = WidgetControllerLoader = _exports.WidgetControllerLoader = require('./widgets/widget/loader').WidgetControllerLoader;
-    _exports2.WidgetSpecs = WidgetSpecs = _exports.WidgetSpecs = require('./widgets/widgets').WidgetSpecs;
-    _exports2.widgets = widgets = _exports.widgets = require('./widgets/widgets').widgets;
+  __pkg.exports.process = function (require) {
+    _exports2.beyond = beyond = require('./beyond').beyond;
+    _exports2.Bundle = Bundle = require('./bundles/bundle').Bundle;
+    _exports2.BundleStyles = BundleStyles = require('./bundles/styles/styles').BundleStyles;
+    _exports2.Module = Module = require('./modules/module').Module;
+    _exports2.ModuleTexts = ModuleTexts = require('./modules/texts').ModuleTexts;
+    _exports2.ActionsBridge = ActionsBridge = require('./service/actions-bridge').ActionsBridge;
+    _exports2.Collection = Collection = require('./utils/collection/collection').Collection;
+    _exports2.Events = Events = require('./utils/events/events').Events;
+    _exports2.ListenerFunction = ListenerFunction = require('./utils/events/types').ListenerFunction;
+    _exports2.CancellationToken = CancellationToken = require('./utils/execution-control/cancellation-token/cancellation-token').CancellationToken;
+    _exports2.SingleCall = SingleCall = require('./utils/execution-control/single-call/single-call').SingleCall;
+    _exports2.PendingPromise = PendingPromise = require('./utils/pending-promise/pending-promise').PendingPromise;
+    _exports2.IWidgetStore = IWidgetStore = require('./widgets/controller/base').IWidgetStore;
+    _exports2.BeyondWidgetControllerBase = BeyondWidgetControllerBase = require('./widgets/controller/base').BeyondWidgetControllerBase;
+    _exports2.BeyondWidgetController = BeyondWidgetController = require('./widgets/controller/controller').BeyondWidgetController;
+    _exports2.IWidgetRendered = IWidgetRendered = require('./widgets/controller/ssr').IWidgetRendered;
+    _exports2.BeyondWidgetControllerSSR = BeyondWidgetControllerSSR = require('./widgets/controller/ssr').BeyondWidgetControllerSSR;
+    _exports2.NodeWidget = NodeWidget = require('./widgets/instances/node').NodeWidget;
+    _exports2.WidgetControllerLoader = WidgetControllerLoader = require('./widgets/widget/loader').WidgetControllerLoader;
+    _exports2.WidgetSpecs = WidgetSpecs = require('./widgets/widgets').WidgetSpecs;
+    _exports2.widgets = widgets = require('./widgets/widgets').widgets;
   };
 
   const hmr = new function () {

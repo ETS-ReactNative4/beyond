@@ -6907,8 +6907,29 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
         value: true
       });
     }
-  });
-  let auth, NotSet, DataSource, CollectionSpecs, Collection, ItemSpecs, Item, CollectionProperty, ItemSelectorProperty, ItemProperty, ItemsProperty, ConditionOperand, realtime, ListUpdateFilterReport, TableSpecs, tables;
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.auth = require('./auth/auth').auth;
+    _exports.NotSet = require('./constants').NotSet;
+    _exports.DataSource = require('./constants').DataSource;
+    _exports.CollectionSpecs = require('./elements/collection/collection').CollectionSpecs;
+    _exports.Collection = require('./elements/collection/collection').Collection;
+    _exports.ItemSpecs = require('./elements/item/item').ItemSpecs;
+    _exports.Item = require('./elements/item/item').Item;
+    _exports.CollectionProperty = require('./elements/item/properties/collection/property').CollectionProperty;
+    _exports.ItemSelectorProperty = require('./elements/item/properties/item-selector/property').ItemSelectorProperty;
+    _exports.ItemProperty = require('./elements/item/properties/item/property').ItemProperty;
+    _exports.ItemsProperty = require('./elements/item/properties/items/property').ItemsProperty;
+    _exports.ConditionOperand = require('./tables/data/filter/filter').ConditionOperand;
+    _exports.realtime = require('./tables/data/realtime/realtime').realtime;
+    _exports.ListUpdateFilterReport = require('./tables/data/realtime/reports/list').ListUpdateFilterReport;
+    _exports.TableSpecs = require('./tables/table').TableSpecs;
+    _exports.tables = require('./tables/tables').tables;
+  };
+
+  let auth, NotSet, DataSource, CollectionSpecs, Collection, ItemSpecs, Item, CollectionProperty, ItemSelectorProperty, ItemProperty, ItemsProperty, ConditionOperand, realtime, ListUpdateFilterReport, TableSpecs, tables; // Module exports
+
   _exports2.tables = tables;
   _exports2.TableSpecs = TableSpecs;
   _exports2.ListUpdateFilterReport = ListUpdateFilterReport;
@@ -6926,23 +6947,23 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   _exports2.NotSet = NotSet;
   _exports2.auth = auth;
 
-  __pkg.exports.process = function (require, _exports) {
-    _exports2.auth = auth = _exports.auth = require('./auth/auth').auth;
-    _exports2.NotSet = NotSet = _exports.NotSet = require('./constants').NotSet;
-    _exports2.DataSource = DataSource = _exports.DataSource = require('./constants').DataSource;
-    _exports2.CollectionSpecs = CollectionSpecs = _exports.CollectionSpecs = require('./elements/collection/collection').CollectionSpecs;
-    _exports2.Collection = Collection = _exports.Collection = require('./elements/collection/collection').Collection;
-    _exports2.ItemSpecs = ItemSpecs = _exports.ItemSpecs = require('./elements/item/item').ItemSpecs;
-    _exports2.Item = Item = _exports.Item = require('./elements/item/item').Item;
-    _exports2.CollectionProperty = CollectionProperty = _exports.CollectionProperty = require('./elements/item/properties/collection/property').CollectionProperty;
-    _exports2.ItemSelectorProperty = ItemSelectorProperty = _exports.ItemSelectorProperty = require('./elements/item/properties/item-selector/property').ItemSelectorProperty;
-    _exports2.ItemProperty = ItemProperty = _exports.ItemProperty = require('./elements/item/properties/item/property').ItemProperty;
-    _exports2.ItemsProperty = ItemsProperty = _exports.ItemsProperty = require('./elements/item/properties/items/property').ItemsProperty;
-    _exports2.ConditionOperand = ConditionOperand = _exports.ConditionOperand = require('./tables/data/filter/filter').ConditionOperand;
-    _exports2.realtime = realtime = _exports.realtime = require('./tables/data/realtime/realtime').realtime;
-    _exports2.ListUpdateFilterReport = ListUpdateFilterReport = _exports.ListUpdateFilterReport = require('./tables/data/realtime/reports/list').ListUpdateFilterReport;
-    _exports2.TableSpecs = TableSpecs = _exports.TableSpecs = require('./tables/table').TableSpecs;
-    _exports2.tables = tables = _exports.tables = require('./tables/tables').tables;
+  __pkg.exports.process = function (require) {
+    _exports2.auth = auth = require('./auth/auth').auth;
+    _exports2.NotSet = NotSet = require('./constants').NotSet;
+    _exports2.DataSource = DataSource = require('./constants').DataSource;
+    _exports2.CollectionSpecs = CollectionSpecs = require('./elements/collection/collection').CollectionSpecs;
+    _exports2.Collection = Collection = require('./elements/collection/collection').Collection;
+    _exports2.ItemSpecs = ItemSpecs = require('./elements/item/item').ItemSpecs;
+    _exports2.Item = Item = require('./elements/item/item').Item;
+    _exports2.CollectionProperty = CollectionProperty = require('./elements/item/properties/collection/property').CollectionProperty;
+    _exports2.ItemSelectorProperty = ItemSelectorProperty = require('./elements/item/properties/item-selector/property').ItemSelectorProperty;
+    _exports2.ItemProperty = ItemProperty = require('./elements/item/properties/item/property').ItemProperty;
+    _exports2.ItemsProperty = ItemsProperty = require('./elements/item/properties/items/property').ItemsProperty;
+    _exports2.ConditionOperand = ConditionOperand = require('./tables/data/filter/filter').ConditionOperand;
+    _exports2.realtime = realtime = require('./tables/data/realtime/realtime').realtime;
+    _exports2.ListUpdateFilterReport = ListUpdateFilterReport = require('./tables/data/realtime/reports/list').ListUpdateFilterReport;
+    _exports2.TableSpecs = TableSpecs = require('./tables/table').TableSpecs;
+    _exports2.tables = tables = require('./tables/tables').tables;
   };
 
   const hmr = new function () {
