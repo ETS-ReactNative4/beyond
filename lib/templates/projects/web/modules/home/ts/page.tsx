@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export /*bundle*/
-function Widget(): JSX.Element {
+function Page(): JSX.Element {
     return (
         <div>
             Mi primer modulo con BeyondJS

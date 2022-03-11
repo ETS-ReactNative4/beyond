@@ -4,7 +4,7 @@ import {routing} from "@beyond-js/kernel/routing/ts";
 const navigate = event => routing.pushState(event.currentTarget.dataset.url);
 
 export /*bundle*/
-class Widget extends React.Component {
+class Menu extends React.Component {
     render() {
         const menu = [{url: '/', title: 'Home'}, {url: '/users', title: 'Usuarios'}];
 

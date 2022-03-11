@@ -1,7 +1,9 @@
 import {PageReactWidgetController} from '@beyond-js/kernel/react-widget/ts';
+import {Page} from "./page";
 
 export /*bundle*/
 class Controller extends PageReactWidgetController {
-    async fetch() {
+    get Widget() {
+        return Page;
     }
 }

@@ -3607,7 +3607,7 @@ define(["exports"], function (_exports2) {
   ***********************************************/
 
   modules.set('./widgets/controller/controller', {
-    hash: 1544759127,
+    hash: 306700614,
     creator: function (require, exports) {
       "use strict";
 
@@ -3631,6 +3631,7 @@ define(["exports"], function (_exports2) {
       class BeyondWidgetController extends _base.BeyondWidgetControllerBase {
         // The widget component to be mounted (can be a React, Svelte, Vue, ... component)
         get Widget() {
+          console.log(0.1, super.Widget, this.bundle.package().exports.values.Widget);
           if (super.Widget) return super.Widget;
           return this.bundle.package().exports.values.Widget;
         }

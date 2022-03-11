@@ -3,7 +3,7 @@ import {Model} from "@testing/web-app/model/bridge";
 import {Header} from "@testing/web-app/header/code";
 
 export /*bundle*/
-function Widget(): JSX.Element {
+function Page(): JSX.Element {
     const [state, setState] = React.useState({fetching: false, list: []});
     const model = new Model();
 

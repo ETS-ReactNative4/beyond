@@ -1,9 +1,0 @@
-{
-  "developer": "beyond",
-  "name": "models",
-  "ts": {
-    "files": [
-      "*"
-    ]
-  }
-}

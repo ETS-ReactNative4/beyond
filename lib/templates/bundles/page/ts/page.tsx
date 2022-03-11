@@ -1,11 +1,10 @@
 import * as React from "react";
 
 export /*bundle*/
-function Widget() {
+function Page() {
     return (
         <>
             Hi page
         </>
     );
-
 }
