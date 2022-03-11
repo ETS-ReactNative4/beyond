@@ -23,7 +23,7 @@ export async function renderWidget(element: string, props?: Record<string, any>)
         const {html, errors} = controller.render(Object.assign({}, props, {store}));
         return {html, errors, css, store};
     } catch (exc) {
-        console.log(exc.stack);
+        console.error(exc.stack);
         return {errors: exc.message};
     }
 }

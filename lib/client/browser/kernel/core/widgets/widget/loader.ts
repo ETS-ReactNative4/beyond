@@ -50,7 +50,7 @@ class WidgetControllerLoader extends Events {
 
             this.trigger('controller.loaded');
         }).catch((exc: Error) => {
-            console.log(`Error loading widget "${this.#id}"`, exc.stack);
+            console.error(`Error loading widget "${this.#id}"`, exc.stack);
             this.#error = exc.message;
             this.#loading = false;
         });
