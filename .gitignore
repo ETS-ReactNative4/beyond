@@ -1,3 +1,17 @@
 .idea
 .beyond
 .nyc_output
+node_modules
+package-lock.json
+
+
+!lib/client/browser/kernel/node_modules
+!lib/client/browser/local/node_modules
+!lib/client/browser/backend/node_modules
+!lib/dashboard/node_modules
+
+applications/*/.beyond
+applications/**/.build
+
+lib/dashboard/.beyond
+lib/dashboard/application/builds
