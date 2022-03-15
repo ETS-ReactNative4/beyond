@@ -13,7 +13,6 @@ function PreviousCompilations({open}) {
 
     const onDelete = event => {
         //TODO: add delete functionality
-        console.log("deleting...")
     }
 
     const builds = [];

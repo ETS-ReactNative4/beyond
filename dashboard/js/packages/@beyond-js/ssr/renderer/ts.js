@@ -26,7 +26,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts", 
   ******************************/
 
   modules.set('./renderWidget', {
-    hash: 1066115574,
+    hash: 2207420990,
     creator: function (require, exports) {
       "use strict";
 
@@ -77,7 +77,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts", 
             store
           };
         } catch (exc) {
-          console.log(exc.stack);
+          console.error(exc.stack);
           return {
             errors: exc.message
           };

@@ -12,11 +12,10 @@ export const ApplicationCreate = function ({closeModal}) {
             return;
         }
         setState(() => ({...state, fetching}));
-
     });
 
-    const {fetching} = state;
     const output = [];
+    const {fetching} = state;
 
     if (createController.ready) {
         output.push(

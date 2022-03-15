@@ -6,6 +6,4 @@ class Controller extends ReactWidgetController {
     get Widget() {
         return Layout;
     }
-
 }
-

@@ -1,4 +1,4 @@
-function DetailApp() {
+function DetailApp({type}) {
     const {texts: {errors, form: texts, actions}, model, fetching} = useCreateAppContext();
 
     const [state, setState] = React.useState({});
@@ -14,11 +14,10 @@ function DetailApp() {
     };
 
     if (!model.valid) btnAttrs.disabled = true;
-
     return (
         <div className="ds-create-app__fields">
             {model.error &&
-             <BeyondAlert title="Ha ocurrido un error" type="error">{errors[model.error]}</BeyondAlert>
+                <BeyondAlert title="Ha ocurrido un error" type="error">{errors[model.error]}</BeyondAlert>
             }
             <div className="item">
                 <BeyondInput
@@ -37,7 +36,6 @@ function DetailApp() {
                     {model.useInspectPort && <PortField identifier="inspect" name="inspectPort"/>}
                 </div>
 
-
                 <BeyondInput
                     value={state.description}
                     placeholder={texts.description}
@@ -48,8 +46,8 @@ function DetailApp() {
                 <div className="actions">
                     <BeyondButton {...btnAttrs} className="btn-large btn primary" type="submit">
                         {fetching
-                            ? <BeyondSpinner className="on-primary" fetching={true}/>
-                            : actions.submit
+                         ? <BeyondSpinner className="on-primary" fetching={true}/>
+                         : actions.submit
                         }
                     </BeyondButton>
                 </div>

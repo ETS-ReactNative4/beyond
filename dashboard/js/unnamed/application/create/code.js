@@ -59,7 +59,9 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
   **************/
 
 
-  function DetailApp() {
+  function DetailApp({
+    type
+  }) {
     const {
       texts: {
         errors,
@@ -142,6 +144,40 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
       fetching: true
     }) : actions.submit))));
   }
+  /************
+  form\form.jsx
+  ************/
+
+
+  function Form() {
+    const {
+      type,
+      setType,
+      model,
+      texts: {
+        form: texts
+      }
+    } = useCreateAppContext();
+
+    const onSubmit = event => {
+      event.preventDefault();
+      model.create();
+    };
+
+    const typeIcon = type === 'empty' ? 'appTemplate' : 'newApp';
+    return /*#__PURE__*/React.createElement("div", {
+      className: "ds-modal_content form-content"
+    }, /*#__PURE__*/React.createElement(_code6.BeyondForm, {
+      onSubmit: onSubmit
+    }, !type ? /*#__PURE__*/React.createElement(ProjectTypes, null) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      className: "block-types__selected",
+      onClick: () => setType(undefined)
+    }, /*#__PURE__*/React.createElement(_code.DSIcon, {
+      icon: typeIcon
+    }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, texts.types[type].title), /*#__PURE__*/React.createElement("p", null, texts.types[type].description))), /*#__PURE__*/React.createElement(DetailApp, {
+      type: type
+    }))));
+  }
   /******************
   form\port-field.jsx
   ******************/
@@ -157,9 +193,6 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
       },
       model
     } = useCreateAppContext();
-    const [state, setState] = React.useState({
-      port: model.port
-    });
     const [valid, setValid] = React.useState();
     const clsPortLabel = `fade-in ${valid === 'success' ? 'form__text-success' : 'form__text-error'}`;
 
@@ -200,40 +233,6 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
     }), valid && /*#__PURE__*/React.createElement("span", {
       className: clsPortLabel
     }, texts.ports[valid]));
-  }
-  /*******
-  form.jsx
-  *******/
-
-
-  function Form() {
-    const {
-      type,
-      setType,
-      model,
-      texts: {
-        form: texts
-      }
-    } = useCreateAppContext();
-
-    const onSubmit = event => {
-      event.preventDefault();
-      model.create();
-    };
-
-    const typeIcon = type === 'empty' ? 'appTemplate' : 'newApp';
-    return /*#__PURE__*/React.createElement("div", {
-      className: "ds-modal_content form-content"
-    }, /*#__PURE__*/React.createElement(_code6.BeyondForm, {
-      onSubmit: onSubmit
-    }, !type ? /*#__PURE__*/React.createElement(ProjectTypes, null) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-      className: "block-types__selected",
-      onClick: () => setType(undefined)
-    }, /*#__PURE__*/React.createElement(_code.DSIcon, {
-      icon: typeIcon
-    }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, texts.types[type].title), /*#__PURE__*/React.createElement("p", null, texts.types[type].description))), /*#__PURE__*/React.createElement(DetailApp, {
-      type: type
-    }))));
   }
   /*********
   header.jsx
@@ -320,10 +319,6 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
       className: "block_types-title"
     }, texts.types.titles.templates), /*#__PURE__*/React.createElement("ul", null, outputTemplates));
   }
-  /************
-  use-model.jsx
-  ************/
-
   /*******
   view.jsx
   *******/
@@ -350,10 +345,10 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
         fetching
       }));
     });
+    const output = [];
     const {
       fetching
     } = state;
-    const output = [];
 
     if (createController.ready) {
       output.push( /*#__PURE__*/React.createElement(React.Fragment, {

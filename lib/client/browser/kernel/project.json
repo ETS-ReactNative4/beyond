@@ -1,7 +1,7 @@
 {
   "scope": "beyond-js",
   "name": "kernel",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "modules": {
     "path": "./"
   },

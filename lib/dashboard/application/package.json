@@ -1,0 +1,9 @@
+{
+  "name": "beyond-dashboard",
+  "devDependencies": {
+    "monaco-editor": "^0.22.3",
+    "tippy.js": "^6.2.0",
+    "@popperjs/core": "^2.11.4",
+    "waves": "^0.1.1"
+  }
+}

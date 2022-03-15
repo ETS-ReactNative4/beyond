@@ -450,7 +450,7 @@ define(["exports", "@beyond-js/dashboard-lib/models/js", "@beyond-js/ui/form/cod
     const openNavigator = event => {
       event.preventDefault();
       event.stopPropagation();
-      workspace.openNavigator(model.id, model.url);
+      workspace.openNavigator(model.id, model.url, true);
     };
 
     (0, _code8.useBinder)([model, declarations], () => setState({}));

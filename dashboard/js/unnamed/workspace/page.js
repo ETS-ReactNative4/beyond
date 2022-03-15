@@ -610,11 +610,25 @@ define(["exports", "@beyond-js/ui/image/code", "@beyond-js/ui/form/code", "@beyo
       this.#save();
     }
 
-    openNavigator(id, url) {
-      this.openBoard('navigator', {
+    openNavigator(id, url, newTab = true) {
+      const {
+        panels,
+        active
+      } = this;
+      const specs = {
         applicationId: id,
-        url
-      });
+        url,
+        id: `navigator.${performance.now()}`
+      };
+
+      if (panels.items.size === 1) {
+        this.panels.add('navigator', specs);
+        return;
+      }
+
+      const toActivateId = panels.active.id > 1 ? panels.active.id - 1 : 2;
+      panels.active = panels.items.get(toActivateId);
+      this.openBoard('navigator', specs);
     }
 
     getApplication(id, moduleId, element) {

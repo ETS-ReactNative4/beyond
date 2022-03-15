@@ -141,8 +141,8 @@ define(["exports"], function (_exports2) {
     #id;
     #required = ['name', 'type'];
     #ports = {
-      inspectPort: ['node', 'backend', 'express', 'web-backend'],
-      navigate: ['web-backend', 'web']
+      inspectPort: ['node', 'backend', 'express', 'web-backend', 'library'],
+      navigate: ['web-backend', 'web', 'library', 'react', 'vue', 'svelte']
     };
     #created;
     #backendPort;
@@ -307,9 +307,13 @@ define(["exports"], function (_exports2) {
         name: "react",
         platforms: ['web']
       }, {
-        name: "board",
+        name: "vue",
         platforms: ['web']
       }, {
+        name: "svelte",
+        platforms: ['web']
+      }, // {name: "board", platforms: ['web']},
+      {
         name: "express",
         platforms: ['backend']
       }, {
@@ -331,6 +335,9 @@ define(["exports"], function (_exports2) {
     }
 
     #TYPES = [{
+      name: "web",
+      platforms: ['web']
+    }, {
       name: "node",
       platforms: ['backend']
     }, {
@@ -338,9 +345,6 @@ define(["exports"], function (_exports2) {
       platforms: ['backend']
     }, {
       name: "library",
-      platforms: ['web']
-    }, {
-      name: "web",
       platforms: ['web']
     }];
 
@@ -358,12 +362,12 @@ define(["exports"], function (_exports2) {
       if (value === this.#type || typeof value !== 'string') return;
       this.#type = value;
 
-      if (this.#ports.inspectPort.includes(value)) {
-        this.checkPort('inspect');
+      if (this.#ports.navigate.includes(value)) {
+        this.checkPort('inspect').catch(exc => console.error(exc.stack));
       }
 
-      if (this.#ports.navigate.includes(value)) {
-        this.checkPort('inspect');
+      if (this.#ports.inspectPort.includes(value)) {
+        this.checkPort('inspect').catch(exc => console.error(exc.stack));
       }
 
       this.triggerEvent();
@@ -390,8 +394,7 @@ define(["exports"], function (_exports2) {
       let invalid = !!this.#required.find(field => !this[field]);
       if (invalid) return false;
       if (this.useInspectPort && !this.inspectPort) return false;
-      if (this.useNavigatePort && !this.navigatePort) return false;
-      return true;
+      return !(this.useNavigatePort && !this.navigatePort);
     }
 
     constructor() {
@@ -401,11 +404,11 @@ define(["exports"], function (_exports2) {
 
       this.checkPort = port => checkPort(this, port);
 
-      this.getInitialPorts();
+      this.getInitialPorts().catch(exc => console.error(exc.stack));
     }
 
     clean() {
-      this.getInitialPort();
+      this.getInitialPort().catch(exc => console.error(exc.stack));
       this.created = false;
       this.title = undefined;
       this.description = undefined;
@@ -419,7 +422,9 @@ define(["exports"], function (_exports2) {
         this.#backendPort = await this.getInitialPort();
         this.navigatePort = await this.getInitialPort();
         this.#ready = true;
-      } catch (e) {}
+      } catch (exc) {
+        console.error(exc.stack);
+      }
     }
 
     #startPort = 8080;

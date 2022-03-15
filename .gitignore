@@ -9,6 +9,9 @@ package-lock.json
 !lib/client/browser/local/node_modules
 !lib/client/browser/backend/node_modules
 !lib/dashboard/node_modules
+!lib/templates/projects/web/modules/node_modules
+!lib/templates/projects/react/modules/node_modules
+!lib/templates/projects/web-backend/modules/node_modules
 
 applications/*/.beyond
 applications/**/.build

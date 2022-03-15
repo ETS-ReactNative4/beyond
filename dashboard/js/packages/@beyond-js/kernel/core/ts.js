@@ -3607,7 +3607,7 @@ define(["exports"], function (_exports2) {
   ***********************************************/
 
   modules.set('./widgets/controller/controller', {
-    hash: 306700614,
+    hash: 1544759127,
     creator: function (require, exports) {
       "use strict";
 
@@ -3631,7 +3631,6 @@ define(["exports"], function (_exports2) {
       class BeyondWidgetController extends _base.BeyondWidgetControllerBase {
         // The widget component to be mounted (can be a React, Svelte, Vue, ... component)
         get Widget() {
-          console.log(0.1, super.Widget, this.bundle.package().exports.values.Widget);
           if (super.Widget) return super.Widget;
           return this.bundle.package().exports.values.Widget;
         }
@@ -3925,7 +3924,7 @@ define(["exports"], function (_exports2) {
   ***************************************/
 
   modules.set('./widgets/widget/loader', {
-    hash: 3742819114,
+    hash: 1845875303,
     creator: function (require, exports) {
       "use strict";
 
@@ -3991,7 +3990,7 @@ define(["exports"], function (_exports2) {
             this.#render();
             this.trigger('controller.loaded');
           }).catch(exc => {
-            console.log(`Error loading widget "${this.#id}"`, exc.stack);
+            console.error(`Error loading widget "${this.#id}"`, exc.stack);
             this.#error = exc.message;
             this.#loading = false;
           });

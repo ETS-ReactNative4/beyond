@@ -8,12 +8,6 @@
     "en"
   ],
   "modules": {
-    "path": "modules",
-    "externals": {
-      "socket.io": {
-        "development": "client-dist/socket.io.js",
-        "production": "client-dist/socket.io.msgpack.min.js"
-      }
-    }
+    "path": "modules"
   }
 }

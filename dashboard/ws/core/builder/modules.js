@@ -41,7 +41,7 @@ module.exports = function (ipc) {
         let module = await ipc.exec('modules/get', [params.moduleId]);
         module = module[params.moduleId];
 
-        const current = module.file.dirname;
+        const current = module.path;
         const toCreate = require('path').join(application.modulesPath, params.name);
         try {
             if (!await fs.exists(current)) {

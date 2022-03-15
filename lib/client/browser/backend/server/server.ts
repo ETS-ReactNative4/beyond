@@ -2,7 +2,7 @@ import * as http from 'http';
 import {Server, ServerOptions, Socket} from 'socket.io';
 import {beyond} from '@beyond-js/kernel/core/ts';
 import {Connection} from './connection/connection';
-import {instrument} from '@socket.io/admin-ui';
+// import {instrument} from '@socket.io/admin-ui';
 
 interface IBeeSpecs {
     container: {
@@ -48,7 +48,7 @@ const BackendServer = class BackendServer {
         const server = http.createServer();
         const io = new Server(server, options);
 
-        instrument(io, {auth: false});
+        // instrument(io, {auth: false});
 
         const {id} = beyond.application.package;
         const namespace = '/' + id.startsWith('@') ? id.substr(1) : id;

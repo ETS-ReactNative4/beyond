@@ -1,6 +1,5 @@
 function PortField({name, identifier}) {
     const {texts: {form: texts}, model} = useCreateAppContext();
-    const [state, setState] = React.useState({port: model.port});
     const [valid, setValid] = React.useState();
     const clsPortLabel = `fade-in ${valid === 'success' ? 'form__text-success' : 'form__text-error'}`;
 

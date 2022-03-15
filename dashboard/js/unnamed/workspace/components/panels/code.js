@@ -45,11 +45,16 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
     get activeItem() {
       return this.#activeItem;
     }
+    /**
+     *
+     * @private
+     */
 
-    _boards;
+
+    #boards;
 
     get boards() {
-      return this._boards;
+      return this.#boards;
     }
 
     #editor;
@@ -110,7 +115,7 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
       super();
       this.#id = id;
       this._parent = parent;
-      this._boards = parent.boards;
+      this.#boards = parent.boards;
       window.panel = this;
       this.#load();
 
@@ -267,8 +272,13 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
      * Adds tabs that doesn't needs the editor instance
      *
      * The tab must exists in the boards object.
-     * @param name
-     * @param specs
+     * @param specs {object} bridge to pass parameters required by the board
+     * @param name {string} Name of the board.
+     * @param specs.label {string} Label to show on board tab.
+     * @param specs?.name {string} name to identify the board.
+     * @params specs?.moduleId {string} if the board to show is the board of a module, the moduleId is required
+     *
+     *
      */
 
 
@@ -282,22 +292,24 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
       let label = specs.label ? specs.label : control.label;
       const labelName = specs.label ? `${name}.${label.toLowerCase().replace(/ /g, '-')}` : undefined;
       const tabName = specs.name ? specs.name : specs.moduleId ? specs.moduleId : specs.label ? labelName : name;
+      const id = specs.id || specs.name || tabName;
 
       if (name === 'application') {
         const application = await _code3.applicationsFactory.get(specs.id);
         label = application.name;
       }
 
-      this.tabs.set(tabName, {
-        label: label,
+      this.tabs.set(id, {
+        id,
+        label,
+        name,
         type: 'content',
-        id: tabName,
         path: name,
-        name: name,
         control: control.control,
         specs
-      });
-      this.#activeItem = tabName;
+      }); //the activeItem is used by the Panel View component to understand which board must be shown.
+
+      this.#activeItem = id;
       this.triggerEvent('panel.updated');
       this.triggerEvent();
     }
@@ -372,10 +384,10 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
 
 
   class PanelsManager extends _js.ReactiveModel {
-    _boards;
+    #boards;
 
     get boards() {
-      return this._boards;
+      return this.#boards;
     }
 
     _total = 1;
@@ -396,16 +408,16 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
       return this._active;
     }
 
-    _workspace;
-
-    get workspace() {
-      return this._workspace;
-    }
-
     set active(panel) {
       if (this._active?.id === panel?.id) return;
       this._active = panel;
       this.triggerEvent();
+    }
+
+    _workspace;
+
+    get workspace() {
+      return this._workspace;
     }
 
     #ready;
@@ -425,7 +437,7 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
     constructor(boards, workspace, data) {
       super();
       this.bind('editor', this.triggerEvent);
-      this._boards = boards;
+      this.#boards = boards;
       this._workspace = workspace;
       this.#load(data);
     }
@@ -468,8 +480,16 @@ define(["exports", "@beyond-js/ui/perfect-scrollbar/code", "@beyond-js/dashboard
     };
     /**
      * Adds a new panel
-     * @param name
-     * @param specs
+     *
+     * This method receives the same parameters that panel.add. It creates
+     * a new panel and once the panel has been created, call the
+     * panel add method if the name and specs paremeters has been passed, if not
+     * the manager will put the same panel opened on the current panel.
+     *
+     * @param name {string} Name of the board to open.
+     * @param specs {object} Specs required to open the board. It could be change
+     * per board.
+     *
      */
 
     async add(name, specs = {}) {

@@ -1,43 +1,7 @@
-//Layout
-.main-widget {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background: white;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 250px auto;
-  gap: 30px;
-}
-
-main {
-  margin-top: 30px;
-}
-
-header {
-  background: #121F36;
-  color: white;
-  box-shadow: 0 5px 5px -5px #333;
-  padding: 1px 15px;
-  font-size: 20px;
-}
-
-//Menu
-aside {
-  background: #313C50;
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-
-  div {
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: 200ms ease-in all;
-
-    &:hover {
-      background: darken(#E36152, 10%);
-    }
-  }
+/**
+ * Global styles
+  The global css file may contain styles required on all web-components.
+ */
+* {
+  font-family: var(--font-family);
 }

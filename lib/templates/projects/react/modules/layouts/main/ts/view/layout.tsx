@@ -3,7 +3,6 @@ import * as React from "react";
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            "menu-layout": any;
             "beyond-layout-children": any;
         }
     }
@@ -11,10 +10,8 @@ declare global {
 
 export function Layout() {
     return (
-        <div className="content">
-            <main>
-                <beyond-layout-children/>
-            </main>
-        </div>
+        <main>
+            <beyond-layout-children/>
+        </main>
     );
 }

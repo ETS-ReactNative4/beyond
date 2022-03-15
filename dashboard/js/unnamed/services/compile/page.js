@@ -242,9 +242,7 @@ define(["exports", "@beyond-js/ui/modal/code", "@beyond-js/ui/form/code", "@beyo
 
     if (!builder.builds || !Object.keys(builder.builds).length) return null;
 
-    const onDelete = event => {
-      //TODO: add delete functionality
-      console.log("deleting...");
+    const onDelete = event => {//TODO: add delete functionality
     };
 
     const builds = [];

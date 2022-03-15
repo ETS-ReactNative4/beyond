@@ -11,8 +11,7 @@ export function Header() {
     const openNavigator = event => {
         event.preventDefault();
         event.stopPropagation();
-
-        workspace.openNavigator(model.id, model.url);
+        workspace.openNavigator(model.id, model.url, true);
     };
     useBinder([model, declarations], () => setState({}));
     useBinder([application.moduleManager], () => setProcessed(application.moduleManager.processed));
@@ -76,7 +75,7 @@ export function Header() {
 
             <section className="pd-base">
 
-            <span className="link" onClick={() => toggleDescription(!showDescription)}> More details</span>
+                <span className="link" onClick={() => toggleDescription(!showDescription)}> More details</span>
                 {showDescription && <Description/>}
             </section>
         </div>

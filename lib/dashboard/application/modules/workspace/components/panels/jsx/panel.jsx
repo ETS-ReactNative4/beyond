@@ -11,6 +11,7 @@
 export function PanelView({panel}) {
     const [state, setState] = React.useState({total: panel.tabs.size, activeTab: panel.activeItem});
     const {activeTab} = state;
+
     const tab = panel.tabs.get(activeTab);
     const ref = React.useRef(null);
     useBinder([panel], () => {
