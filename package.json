@@ -41,7 +41,7 @@
     "node": ">=14.17.4",
     "npm": ">=6.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/generator": "^7.14.3",
     "@babel/parser": "^7.14.4",
