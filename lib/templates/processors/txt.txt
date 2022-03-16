@@ -1,8 +1,0 @@
-{
-  "spa": {
-    "title": "Titulo del modulo"
-  },
-  "eng": {
-    "title": "module title"
-  }
-}

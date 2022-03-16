@@ -1,3 +1,0 @@
-.app-module-container {
-  background: var(--beyond-element-primary-background-color);
-}
