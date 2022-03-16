@@ -1,0 +1,26 @@
+{
+  "name": "board-app",
+  "version": "1.0.0",
+  "title": "Landing page",
+  "description": "APP Básica con menú para empezar el desarrollo",
+  "languages": [
+    "en"
+  ],
+  "layout": "main-layout",
+  "template": "template/template.json",
+  "modules": {
+    "path": "modules"
+  },
+  "ssr": {},
+  "deployment": {
+    "distributions": [
+      {
+        "name": "web-development",
+        "platform": "web",
+        "environment": "development",
+        "port": 8080,
+        "default": true
+      }
+    ]
+  }
+}

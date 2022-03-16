@@ -1,0 +1,9 @@
+{
+  "name": "server",
+  "platforms": "node",
+  "start": {
+    "ts": {
+      "files": "*"
+    }
+  }
+}

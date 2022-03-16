@@ -1,0 +1,53 @@
+.app-card-module {
+
+  animation: expand .8s ease forwards;
+
+  .card__tasks-container {
+    display: grid;
+    grid-gap: 5px;
+
+    .card__task {
+      background: rgba($beyond-secondary-dark-color, .4);
+      padding: 15px;
+      border-radius: 5px;
+      transition: all 200ms linear;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        background: rgba($beyond-secondary-dark-color, 1);
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+
+        button {
+          background: $beyond-primary-dark-color;
+          border: 1px solid $beyond-primary-dark-color;
+          color: $beyond-text-on-primary;
+          outline: 0;
+          padding: 5px 10px;
+          font-size: .8rem;
+          transition: all 200ms linear;
+          cursor: pointer;
+
+          &:hover {
+            background: darken($beyond-primary-dark-color, 10%);
+            border: darken($beyond-primary-dark-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

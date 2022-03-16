@@ -1,0 +1,32 @@
+{
+  "name": "card",
+  "widget": {
+    "layout": "main-layout",
+    "vdir": "1",
+    "is": "page",
+    "route": "/card",
+    "element": {
+      "name": "card-page"
+    },
+    "ts": {
+      "path": "ts",
+      "files": [
+        "*"
+      ]
+    },
+    "scss": {
+      "dom": true,
+      "path": "scss",
+      "files": [
+        "*"
+      ]
+    }
+  },
+  "txt": {
+    "multilanguage": true,
+    "path": "txt",
+    "files": [
+      "*"
+    ]
+  }
+}

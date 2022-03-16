@@ -1,0 +1,6 @@
+module.exports = function() {
+    this.method = param => {
+        //your server code here
+    }
+
+}

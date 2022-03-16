@@ -1,0 +1,12 @@
+{
+  "page": {
+    "route": "/",
+    "ts": {
+      "path": "ts",
+      "files": "*"
+    },
+    "scss": {
+      "files": "*"
+    }
+  }
+}

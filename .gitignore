@@ -11,6 +11,8 @@ package-lock.json
 !lib/dashboard/node_modules
 !lib/templates/projects/web/modules/node_modules
 !lib/templates/projects/react/modules/node_modules
+!lib/templates/projects/vue/modules/node_modules
+!lib/templates/projects/svelte/modules/node_modules
 !lib/templates/projects/web-backend/modules/node_modules
 
 applications/*/.beyond
