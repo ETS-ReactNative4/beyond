@@ -1,4 +1,4 @@
-function DetailApp({type}) {
+function DetailApp() {
     const {texts: {errors, form: texts, actions}, model, fetching} = useCreateAppContext();
 
     const [state, setState] = React.useState({});

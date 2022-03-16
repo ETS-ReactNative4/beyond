@@ -5,13 +5,13 @@ function PreviousCompilations({open}) {
     const [modal, toggleModal] = React.useState(open);
 
     React.useEffect(() => toggleModal(open), [open])
-    const show = event => {
+    const show = () => {
         toggleModal(!modal);
     };
 
     if (!builder.builds || !Object.keys(builder.builds).length) return null;
 
-    const onDelete = event => {
+    const onDelete = () => {
         //TODO: add delete functionality
     }
 
