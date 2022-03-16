@@ -159,12 +159,8 @@ module.exports = class Project extends require('../file-manager') {
             exec('npm install', {
                 cwd: this.file.dirname
             }, (error, stdout, stderr) => {
-                if (error) {
-                    console.log("error", error);
-                }
-                if (stderr) {
-                    console.log("stderr", stderr);
-                }
+                error && console.error("error", error);
+                stderr && console.error("stderr", stderr);
                 resolve();
             });
         })

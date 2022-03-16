@@ -6,7 +6,7 @@ module.exports = function (ipc) {
         return appData.path;
     };
 
-    this.create = async (params, session) => {
+    this.create = async params => {
         try {
             const {applicationId} = params;
             const applicationPath = await getPath(applicationId);
@@ -15,7 +15,6 @@ module.exports = function (ipc) {
 
             const app = new Project(applicationPath);
             const name = params.bundles.includes('layout') ? `layouts/${params.name}` : params.name;
-
             const module = new Module(app.modules.path, name);
 
             if (module.exists) {
@@ -32,7 +31,7 @@ module.exports = function (ipc) {
         }
     };
 
-    this.clone = async (params, session) => {
+    this.clone = async params => {
         const {fs} = global.utils;
         const appId = params.moduleId.split('//')[1];
         let application = await ipc.exec('applications/get', [appId]);
@@ -62,7 +61,7 @@ module.exports = function (ipc) {
         }
     }
 
-    this.edit = async (params, session) => {
+    this.edit = async params => {
         let data = await ipc.exec('modules/get', [params.moduleId]);
         data = data[params.moduleId];
         const {Module} = (require('./models'));
@@ -81,7 +80,7 @@ module.exports = function (ipc) {
         return data;
     };
 
-    this.addBundle = async (params, session) => {
+    this.addBundle = async params => {
 
         try {
             let data = await ipc.exec('modules/get', [params.moduleId]);

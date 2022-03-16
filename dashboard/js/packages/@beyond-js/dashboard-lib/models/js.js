@@ -749,6 +749,7 @@ define(["exports"], function (_exports2) {
         params.bundles = [this._type];
         params.processors = Array.from(this._processors.keys());
         const action = params.template ? '/builder/module/clone' : '/builder/module/create';
+        this._styles && params.processors.push('scss');
         const response = await module.execute(action, params);
 
         if (response.error) {

@@ -6,6 +6,12 @@
     "element": {
       "name": "home-page"
     },
+    "scss": {
+      "path": "scss",
+      "files": [
+        "*"
+      ]
+    },
     "ts": {
       "path": "ts",
       "files": [

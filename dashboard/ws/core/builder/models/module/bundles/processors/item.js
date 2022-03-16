@@ -17,12 +17,10 @@ module.exports = class Processor extends require('../../../file-manager') {
         return this.#name;
     }
 
-    #path = 'ts';
-
     constructor(bundle, processor, specs) {
         super(bundle.file.file, processor);
         this.bundle = bundle;
-        this.path = specs.path === false ? '' : this.#path;
+        this.path = specs.path === false ? '' : processor;
 
         this.#name = processor;
         this.#type = processor;
@@ -34,7 +32,6 @@ module.exports = class Processor extends require('../../../file-manager') {
         this.skeleton = specs.skeleton;
         this.#skeleton = specs.skeleton;
         if (specs) this._checkProperties(specs);
-
     }
 
     getPath = () => this.path ? `/${this.bundle.file.basename}/${this.path}` : this.bundle.file.basename;

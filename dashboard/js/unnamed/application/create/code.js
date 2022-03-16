@@ -59,9 +59,7 @@ define(["exports", "@beyond-js/dashboard/core-components/code", "@beyond-js/ui/i
   **************/
 
 
-  function DetailApp({
-    type
-  }) {
+  function DetailApp() {
     const {
       texts: {
         errors,

@@ -638,9 +638,9 @@ define(["exports", "@beyond-js/dashboard-lib/models/js", "@beyond-js/dashboard/c
     if (!template) return null;
     const [error, setError] = React.useState();
     const [initial, setInitial] = React.useState(true);
-    const noStyles = template !== 'bridge' || template !== 'ts';
+    const styles = template === 'page' || template === 'widget' || template === 'layout';
     const [state, setState] = React.useState({
-      styles: !noStyles
+      styles: styles
     });
 
     const onSubmit = async event => {

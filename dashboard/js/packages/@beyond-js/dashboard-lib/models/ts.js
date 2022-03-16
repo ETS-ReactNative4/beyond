@@ -1089,7 +1089,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/plm/core/ts"], funct
   *******************************************/
 
   modules.set('./applications/modules/item', {
-    hash: 1124796050,
+    hash: 2585905232,
     creator: function (require, exports) {
       "use strict";
 
@@ -1224,7 +1224,6 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/plm/core/ts"], funct
               }
             };
           } else field === 'title' ? specs.title = value : specs.description = value;
-          console.log('/builder/module/edit', specs);
           return _beyond_context.module.execute('/builder/module/edit', specs);
         }
 

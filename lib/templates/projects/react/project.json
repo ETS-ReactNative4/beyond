@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "layout": "main-layout",
   "template": "template/template.json",
+  "backend": {},
   "modules": {
     "path": "./modules"
   },

@@ -147,7 +147,6 @@ class ApplicationModule extends Item {
             specs.bundles = {ts: {transpile: <boolean>value}};
         } else field === 'title' ? specs.title = <string>value : specs.description = <string>value;
 
-        console.log('/builder/module/edit', specs)
         return module.execute('/builder/module/edit', specs);
     }
 
